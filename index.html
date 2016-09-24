@@ -16,7 +16,7 @@
     <svg data-js="mySvg"></svg>
     <p>
         <button data-js="create" type="button" name="button">Clique Aqui</button>
-        Ou apenas passe o mouse/dedo sobre a área.
+        Ou Apenas passe o mouse/dedo sobre a área.
     </p>
     <script>
         var mySvg = document.querySelector('[data-js="mySvg"]');
@@ -34,7 +34,7 @@
             circle.setAttributeNS(null, 'fill', '#' + randomX);
             mySvg.appendChild(circle);
         }
-git
+
         btn.addEventListener('click', create);
         mySvg.addEventListener('mousemove', create);
         mySvg.addEventListener('touchmove', create);
