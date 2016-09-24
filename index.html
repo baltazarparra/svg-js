@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manipulando SVG</title>
+</head>
+<style media="screen">
+    svg {
+        width: 1920px;
+        max-width: 100%;
+    }
+</style>
+<body>
+    <svg data-js="mySvg"></svg>
+    <p>
+        <button data-js="create" type="button" name="button">Clique Aqui</button>
+        Ou Apenas passe o mouse sobre a área.
+    </p>
+    <script>
+        var mySvg = document.querySelector('[data-js="mySvg"]');
+        var btn = document.querySelector('[data-js="create"]');
+        var svgNS = 'http://www.w3.org/2000/svg';
+
+        function create() {
+            var randomX = Math.floor(Math.random() * 500)
+            var randomY = Math.random() * 500;
+
+            var circle = document.createElementNS(svgNS, 'circle');
+            circle.setAttributeNS(null, 'r', randomX);
+            circle.setAttributeNS(null, 'cx', randomX);
+            circle.setAttributeNS(null, 'cy', randomY);
+            circle.setAttributeNS(null, 'fill', '#' + randomX);
+            mySvg.appendChild(circle);
+        }
+
+        btn.addEventListener('click', create);
+        mySvg.addEventListener('mousemove', create);
+        mySvg.addEventListener('touchmove', create);
+    </script>
+</body>
+</html>
